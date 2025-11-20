@@ -1,0 +1,75 @@
+/* CSS Reset (trimmed) */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html, body { height: 100%; }
+body { line-height: 1.5; -webkit-font-smoothing: antialiased; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }
+
+:root {
+  --bg: #ffffff;
+  --bg-elev: #f7f7f8;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-contrast: #ffffff;
+  --secondary: #0ea5e9;
+  --shadow: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.06);
+}
+
+[data-theme="dark"] {
+  --bg: #0b1020;
+  --bg-elev: #121a2f;
+  --text: #e6eefc;
+  --muted: #9fb0d1;
+  --border: #1f2a44;
+  --primary: #60a5fa;
+  --primary-contrast: #0b1020;
+  --secondary: #38bdf8;
+  --shadow: 0 10px 15px -3px rgba(0,0,0,0.35), 0 4px 6px -4px rgba(0,0,0,0.3);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.site-header { position: sticky; top: 0; backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--bg) 80%, transparent); z-index: 10; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.brand { font-weight: 800; letter-spacing: 0.4px; }
+.nav { display: flex; gap: 14px; }
+.nav-link { color: var(--muted); text-decoration: none; font-weight: 500; }
+.nav-link:hover { color: var(--text); }
+.main-content { padding: 32px 0 64px; }
+.site-footer { border-top: 1px solid var(--border); background: var(--bg-elev); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.footer-link { color: var(--muted); text-decoration: none; }
+.footer-link:hover { color: var(--text); }
+
+.hero { padding: 36px 0; display: grid; gap: 12px; }
+.hero h1 { font-size: clamp(32px, 5vw, 44px); line-height: 1.1; letter-spacing: -0.02em; }
+.hero p { color: var(--muted); }
+.hero-actions { display: flex; gap: 12px; margin-top: 8px; }
+
+.section { padding: 28px 0; }
+.section h2 { font-size: 22px; margin-bottom: 18px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+.card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); padding: 16px; display: grid; gap: 8px; }
+.card h3 { font-size: 18px; }
+.card p { color: var(--muted); }
+.stack { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.btn { --btn-bg: var(--bg-elev); --btn-color: var(--text); --btn-border: var(--border); display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 10px; font-weight: 600; border: 1px solid var(--btn-border); background: var(--btn-bg); color: var(--btn-color); cursor: pointer; text-decoration: none; }
+.btn:hover { filter: saturate(1.05) brightness(1.02); }
+.btn:active { transform: translateY(1px); }
+.btn-primary { --btn-bg: var(--primary); --btn-color: var(--primary-contrast); --btn-border: color-mix(in oklab, var(--primary) 80%, black); }
+.btn-secondary { --btn-bg: var(--secondary); --btn-color: #001; --btn-border: color-mix(in oklab, var(--secondary) 80%, black); }
+.btn-outline { --btn-bg: transparent; --btn-color: var(--text); --btn-border: var(--border); }
+.btn-ghost { --btn-bg: transparent; --btn-color: var(--muted); --btn-border: transparent; }
+
+.theme-toggle { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.theme-toggle button { border: 1px solid var(--border); background: var(--bg-elev); height: 32px; padding: 0 10px; border-radius: 8px; cursor: pointer; }
